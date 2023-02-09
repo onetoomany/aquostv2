@@ -31,7 +31,7 @@ class TV(object):
         if command_map not in self._VALID_COMMAND_MAPS:
             raise ValueError("command_layout should be one of %s, not %s" % (str(self._VALID_COMMAND_MAPS), command_map))
 
-        stream = pkgutil.get_data("sharp_aquos_rc", "commands/%s.yaml" %command_map)
+        stream = pkgutil.get_data("sharp_aquos_rc", "%s.yaml" %command_map)
         self.command = yaml.load(stream)
 
     def _open_connection(self):
